@@ -1,10 +1,7 @@
 function cleanSet(set, startString) {
-  if (startString.length === 0) {
-    return '';
-  }
   const newList = [];
   for (const elem of set) {
-    if (elem.startsWith(startString)) {
+    if (elem.startsWith(startString) && startString !== '') {
       newList.push(elem.slice(startString.length));
     }
   }
