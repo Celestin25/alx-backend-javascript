@@ -1,6 +1,6 @@
 function cleanSet(set, startString) {
   const newList = [];
-  if (startString === '') {
+  if (startString === '' || typeof startString !== 'string') {
     return '';
   }
   for (const elem of set) {
