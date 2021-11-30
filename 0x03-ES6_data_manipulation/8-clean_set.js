@@ -4,7 +4,7 @@ function cleanSet(set, startString) {
   }
   const newList = [];
   for (const elem of set) {
-    if (startString.length > 0 && elem.startsWith(startString)) {
+    if (elem.startsWith(startString)) {
       newList.push(elem.slice(startString.length));
     }
   }
