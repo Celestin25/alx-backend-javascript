@@ -31,7 +31,7 @@ const countStudents = (path) => {
       delete fields.field;
       for (const key of Object.keys(fields)) {
         printItem = `Number of students in ${key}: ${
-          fields[key].length}. List: ${fields[key].join(',')}`;
+          fields[key].length}. List: ${fields[key].join(', ')}`;
         console.log(printItem);
         printOut.push(printItem);
       }
