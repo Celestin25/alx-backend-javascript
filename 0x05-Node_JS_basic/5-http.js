@@ -35,7 +35,7 @@ const countStudents = (path) => {
         }
         res(printOut);
       } else {
-        rej(Error('Cannot load the database'));
+        rej(new Error('Cannot load the database'));
       }
     });
   };
