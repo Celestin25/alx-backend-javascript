@@ -20,20 +20,20 @@ const countStudents = (path) => {
 
         const fields = {};
         for (const student in students) {
-            if (student !== 0) {
-              if (!fields[students[student][3]]) {
-                fields[students[student][3]] = [];
-              }
-              fields[students[student][3]].push(students[student][0]);
+          if (student !== 0) {
+            if (!fields[students[student][3]]) {
+              fields[students[student][3]] = [];
             }
+            fields[students[student][3]].push(students[student][0]);
           }
-          delete fields.field;
-          for (const key of Object.keys(fields)) {
-            printItem = `Number of students in ${key}: ${
-          fields[key].length}. List: ${fields[key].join(', ')}`;
-            console.log(printItem);
-            printOut.push(printItem);
-          }
+        }
+        delete fields.field;
+        for (const key of Object.keys(fields)) {
+          printItem = `Number of students in ${key}: ${
+            fields[key].length}. List: ${fields[key].join(', ')}`;
+          console.log(printItem);
+          printOut.push(printItem);
+        }
         res(printOut);
       } else {
         rej(new Error('Cannot load the database'));
