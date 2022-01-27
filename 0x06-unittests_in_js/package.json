@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "unittests in JS",
   "main": "index.js",
-  "dependencies": {},
+  "dependencies": {
+    "chai": "^4.3.6"
+  },
   "devDependencies": {
     "mocha": "^9.2.0"
   },
