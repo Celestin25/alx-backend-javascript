@@ -148,5 +148,18 @@ describe('/login', () => {
       expect(res.headers['content-length']).to.equal('13');
     });
   });
+
+  it('should return the correct status 404 with invalid get value', () => {
+    const data = {
+      username: 'Betty',
+    };
+    request.post({
+      url: 'http://localhost:7865/login',
+      body: data,
+      json: true,
+    }, (error, res, body) => {
+      expect(res.statusCode).to.equal(404);
+    });
+  });
 });
 
