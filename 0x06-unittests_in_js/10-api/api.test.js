@@ -78,6 +78,18 @@ describe('/available_payments', () => {
         { payment_methods: { credit_cards: true, paypal: false } });
     });
   });
+
+  it('should have the correct content type', () => {
+    request('http://localhost:7865/available_payments', (error, res, body) => {
+      expect(res.headers['content-type']).to.equal('application/json; charset=utf-8');
+    });
+  });
+
+  it('should have the correct content length', () => {
+    request('http://localhost:7865/available_payments', (error, res, body) => {
+      expect(res.headers['content-length']).to.equal('56');
+    });
+  });
 });
 
 describe('/login', () => {
@@ -97,4 +109,44 @@ describe('/login', () => {
       expect(res.body).to.be.equal('Welcome Betty');
     });
   });
+
+  it('should return the correct result with form data value', () => {
+    const data = {
+      userName: 'Betty',
+    };
+    request.post({
+      url: 'http://localhost:7865/login',
+      body: data,
+      json: true,
+    }, (error, res, body) => {
+      expect(body).to.contain('Welcome Betty');
+    });
+  });
+
+  it('should return the correct content type', () => {
+    const data = {
+      userName: 'Betty',
+    };
+    request.post({
+      url: 'http://localhost:7865/login',
+      body: data,
+      json: true,
+    }, (error, res, body) => {
+      expect(res.headers['content-type']).to.equal('text/html; charset=utf-8');
+    });
+  });
+
+  it('should return the correct content length', () => {
+    const data = {
+      userName: 'Betty',
+    };
+    request.post({
+      url: 'http://localhost:7865/login',
+      body: data,
+      json: true,
+    }, (error, res, body) => {
+      expect(res.headers['content-length']).to.equal('13');
+    });
+  });
 });
+
